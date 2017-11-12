@@ -1,29 +1,30 @@
-package com.example.marc.myapplication;
+package com.example.marc.myapplication.activities;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.marc.myapplication.R;
+import com.example.marc.myapplication.fragments.MovieFragment;
 
-
-public abstract class MainActivity extends AppCompatActivity
+public abstract class SingleFragmentActivity extends AppCompatActivity
 {
     protected abstract Fragment getFragment();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_single_fragment);
 
         showFragment(getFragment());
     }
 
-    private void showFragment(Fragment fragment)
+    private void showFragment(Fragment frag)
     {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frag_container, fragment)
+                .replace(R.id.fl_fragment_container, frag)
                 .commit();
     }
 }

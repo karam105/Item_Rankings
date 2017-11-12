@@ -1,4 +1,4 @@
-package com.example.marc.myapplication;
+package com.example.marc.myapplication.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,13 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.List;
 
 import com.example.marc.myapplication.R;
-import com.example.marc.myapplication.MovieListAdapter;
+import com.example.marc.myapplication.adapters.MovieListAdapter;
 
-/**
- * Created by Marc on 11/12/2017.
- */
 
 public class MovieListFragment extends Fragment
 {
@@ -26,12 +26,13 @@ public class MovieListFragment extends Fragment
     {
         View v = inflater.inflate(R.layout.fragment_movie_list, container, false);
 
-        RecyclerView moviesList = v.findViewById(R.id.rv_movies);
+        RecyclerView crimesListView = v.findViewById(R.id.rv_movies);
 
         this.adapter = new MovieListAdapter();
-        moviesList.setAdapter(adapter);
+        crimesListView.setAdapter(adapter);
 
-        moviesList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        // This is lame - don't study this, just do it
+        crimesListView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         return v;
     }

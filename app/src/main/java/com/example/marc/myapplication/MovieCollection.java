@@ -1,13 +1,11 @@
 package com.example.marc.myapplication;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.marc.myapplication.MovieModel;
-
-/**
- * Created by Marc on 11/12/2017.
- */
+import com.example.marc.myapplication.Models.MovieModel;
 
 public class MovieCollection
 {
@@ -29,8 +27,11 @@ public class MovieCollection
     {
         this.movies = new ArrayList<>();
 
-        for (int i = 0; i < 10; ++i)
+        // Randomly generate 100 crimes
+        for (int i = 0; i < 100; ++i)
         {
+            Log.i("Test", "Generating stuff");
+
             MovieModel movie = new MovieModel();
             movie.setTitle("Movie #" + (i+1));
             movie.setSeen(i % 2 == 0);
@@ -51,7 +52,7 @@ public class MovieCollection
 
     public MovieModel getMovie(String id)
     {
-        for (MovieModel movie : this.movies)
+        for(MovieModel movie: this.movies)
         {
             if (movie.getId().equals(id))
             {

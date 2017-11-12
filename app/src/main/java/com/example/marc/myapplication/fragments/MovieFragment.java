@@ -1,4 +1,4 @@
-package com.example.marc.myapplication;
+package com.example.marc.myapplication.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,23 +11,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.TextView;
+import android.widget.EditText;
 
-import com.example.marc.myapplication.R;
-import com.example.marc.myapplication.MovieModel;
-import com.example.marc.myapplication.MovieActivity;
+
+
+
 import com.example.marc.myapplication.MovieCollection;
+import com.example.marc.myapplication.R;
+import com.example.marc.myapplication.activities.MovieActivity;
+import com.example.marc.myapplication.Models.MovieModel;
 
-/**
- * Created by Marc on 11/12/2017.
- */
 
 public class MovieFragment extends Fragment
 {
-    private final String LOGTAG = "Moviefragment";
+    private final String LOGTAG = "CrimeFragment";
 
-    private TextView titleTextView;
-    private CheckBox movieSeen;
+    private EditText titleEditText;
+    private CheckBox solvedCheckbox;
 
     private MovieModel movie;
 
@@ -36,8 +36,8 @@ public class MovieFragment extends Fragment
     {
         super.onCreate(savedInstanceState);
 
-        String movieID = getArguments().getString(MovieActivity.MOVIE_ID);
-        this.movie = MovieCollection.GetInstance().getMovie(movieID);
+        String crimeId = getArguments().getString(MovieActivity.EXTRA_CRIME_ID);
+        this.movie = MovieCollection.GetInstance().getMovie(crimeId);
     }
 
     @Nullable
@@ -45,21 +45,25 @@ public class MovieFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         View v = inflater.inflate(R.layout.fragment_movie, container, false);
-        this.titleTextView = v.findViewById(R.id.tv_title);
-        this.titleTextView.setText(this.movie.getTitle());
 
-        this.movieSeen = v.findViewById(R.id.movie_seen);
-        this.movieSeen.setChecked(this.movie.isSeen());
+        this.titleEditText = v.findViewById(R.id.et_title);
+        this.titleEditText.setText(this.movie.getTitle());
 
-        this.titleTextView.addTextChangedListener(new TextWatcher() {
+        this.solvedCheckbox = v.findViewById(R.id.cb_solved);
+        this.solvedCheckbox.setChecked(this.movie.isSeen());
+
+        this.titleEditText.addTextChangedListener(new TextWatcher()
+        {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
             {
+
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2)
             {
+
             }
 
             @Override
@@ -70,12 +74,13 @@ public class MovieFragment extends Fragment
             }
         });
 
-        this.movieSeen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        this.solvedCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isSeen)
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked)
             {
-                Log.d(LOGTAG, "Seen changed to " + isSeen);
-                movie.setSeen(isSeen);
+                Log.d(LOGTAG, "Solved changed to " + isChecked);
+                movie.setSeen(isChecked);
             }
         });
 

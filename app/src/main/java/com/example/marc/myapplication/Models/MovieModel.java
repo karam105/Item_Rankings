@@ -1,10 +1,8 @@
-package com.example.marc.myapplication;
+package com.example.marc.myapplication.Models;
+
+
 
 import java.util.UUID;
-
-/**
- * Created by Marc on 11/12/2017.
- */
 
 public class MovieModel
 {
@@ -12,9 +10,11 @@ public class MovieModel
     private String title;
     private boolean seen;
 
+
     public MovieModel()
     {
         this.id = UUID.randomUUID().toString();
+
     }
 
     public String getId()
@@ -36,6 +36,7 @@ public class MovieModel
     {
         return seen;
     }
+
     public void setSeen(boolean seen)
     {
         this.seen = seen;

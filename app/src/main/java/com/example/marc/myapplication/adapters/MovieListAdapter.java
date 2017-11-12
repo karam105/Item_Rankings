@@ -1,5 +1,6 @@
-package com.example.marc.myapplication;
+package com.example.marc.myapplication.adapters;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,19 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.marc.myapplication.MovieCollection;
 import com.example.marc.myapplication.R;
-import com.example.marc.myapplication.MovieActivity;
-import com.example.marc.myapplication.MovieModel;
+import com.example.marc.myapplication.activities.MovieActivity;
+import com.example.marc.myapplication.Models.MovieModel;
 
-/**
- * Created by Marc on 11/12/2017.
- */
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>
 {
-    private final String LOGTAG = "MovieListAdapter";
+    private final String LOGTAG = "CrimeListAdapter";
 
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -37,9 +36,10 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
     public void onBindViewHolder(MovieViewHolder holder, int position)
     {
         Log.d(LOGTAG, "onBindViewHolder(" + position + ")");
-
+        // Get crime at specified position
         MovieModel movie = MovieCollection.GetInstance().getMovies().get(position);
 
+        // Setup the ViewHolder
         holder.setup(movie);
     }
 
@@ -55,7 +55,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
         private MovieModel movie;
 
         private TextView titleTextView;
-        private CheckBox movieSeenCheck;
+        private CheckBox solvedCheckbox;
 
         public MovieViewHolder(View itemView)
         {
@@ -63,8 +63,8 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
 
             itemView.setOnClickListener(this);
 
-            this.titleTextView = itemView.findViewById(R.id.title);
-            this.movieSeenCheck = itemView.findViewById(R.id.movie_seen);
+            this.titleTextView = itemView.findViewById(R.id.tv_title);
+            this.solvedCheckbox = itemView.findViewById(R.id.cb_solved);
         }
 
         public void setup(MovieModel movie)
@@ -72,16 +72,16 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
             this.movie = movie;
 
             this.titleTextView.setText(movie.getTitle());
-            this.movieSeenCheck.setChecked(movie.isSeen());
+            this.solvedCheckbox.setChecked(movie.isSeen());
         }
 
         @Override
         public void onClick(View view)
         {
-            Intent movieIntent = new Intent(view.getContext(), MovieActivity.class);
-            movieIntent.putExtra(MovieActivity.MOVIE_ID, this.movie.getId());
+            Intent crimeIntent = new Intent(view.getContext(), MovieActivity.class);
+            crimeIntent.putExtra(MovieActivity.EXTRA_CRIME_ID, this.movie.getId());
 
-            view.getContext().startActivity(movieIntent);
+            view.getContext().startActivity(crimeIntent);
         }
     }
 }

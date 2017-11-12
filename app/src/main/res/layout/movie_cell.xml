@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
 
     <CheckBox
-        android:id="@+id/movie_seen"
+        android:id="@+id/cb_solved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:clickable="false"/>
 
@@ -21,13 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_toStartOf="@id/movie_seen"
-        android:layout_toLeftOf="@id/movie_seen"
+        android:layout_toStartOf="@id/cb_solved"
         android:ellipsize="end"
         android:maxLines="1"
         android:textSize="25sp"
-        tools:text="TESTER"/>
+        tools:text="Here's a test title that i added"/>
 
 </RelativeLayout>
