@@ -3,7 +3,9 @@ package com.example.marc.myapplication.activities;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
+import com.example.marc.myapplication.MovieTouchHelper;
 import com.example.marc.myapplication.R;
 import com.example.marc.myapplication.fragments.MovieFragment;
 

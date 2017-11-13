@@ -16,6 +16,8 @@ import com.example.marc.myapplication.R;
 import com.example.marc.myapplication.activities.MovieActivity;
 import com.example.marc.myapplication.Models.MovieModel;
 
+import java.util.Collections;
+
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>
 {
@@ -48,6 +50,18 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
     {
         Log.d(LOGTAG, "getItemCount()");
         return MovieCollection.GetInstance().getMovies().size();
+    }
+
+    public void removeElement(int itemPosition)
+    {
+        MovieCollection.GetInstance().getMovies().remove(itemPosition);
+        notifyItemRemoved(itemPosition);
+    }
+
+    public void swapPositions(int firstItem, int secondItem)
+    {
+        Collections.swap(MovieCollection.GetInstance().getMovies(), firstItem, secondItem);
+        notifyItemMoved(firstItem, secondItem);
     }
 
     class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener

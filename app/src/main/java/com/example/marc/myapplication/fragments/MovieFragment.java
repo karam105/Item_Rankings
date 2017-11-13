@@ -3,6 +3,7 @@ package com.example.marc.myapplication.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -17,9 +18,11 @@ import android.widget.EditText;
 
 
 import com.example.marc.myapplication.MovieCollection;
+import com.example.marc.myapplication.MovieTouchHelper;
 import com.example.marc.myapplication.R;
 import com.example.marc.myapplication.activities.MovieActivity;
 import com.example.marc.myapplication.Models.MovieModel;
+import com.example.marc.myapplication.adapters.MovieListAdapter;
 
 
 public class MovieFragment extends Fragment
