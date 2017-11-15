@@ -2,6 +2,9 @@ package com.example.marc.myapplication.Models;
 
 
 
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
 import java.util.UUID;
 
 public class MovieModel

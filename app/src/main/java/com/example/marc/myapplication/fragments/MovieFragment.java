@@ -3,7 +3,6 @@ package com.example.marc.myapplication.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -13,16 +12,13 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-
-
+import android.widget.ImageView;
 
 
 import com.example.marc.myapplication.MovieCollection;
-import com.example.marc.myapplication.MovieTouchHelper;
 import com.example.marc.myapplication.R;
 import com.example.marc.myapplication.activities.MovieActivity;
 import com.example.marc.myapplication.Models.MovieModel;
-import com.example.marc.myapplication.adapters.MovieListAdapter;
 
 
 public class MovieFragment extends Fragment
@@ -30,7 +26,8 @@ public class MovieFragment extends Fragment
     private final String LOGTAG = "CrimeFragment";
 
     private EditText titleEditText;
-    private CheckBox solvedCheckbox;
+    private CheckBox seenCheckBox;
+    private ImageView coverImageView;
 
     private MovieModel movie;
 
@@ -39,8 +36,8 @@ public class MovieFragment extends Fragment
     {
         super.onCreate(savedInstanceState);
 
-        String crimeId = getArguments().getString(MovieActivity.EXTRA_CRIME_ID);
-        this.movie = MovieCollection.GetInstance().getMovie(crimeId);
+        String movieId = getArguments().getString(MovieActivity.EXTRA_MOVIE_ID);
+        this.movie = MovieCollection.GetInstance().getMovie(movieId);
     }
 
     @Nullable
@@ -52,8 +49,8 @@ public class MovieFragment extends Fragment
         this.titleEditText = v.findViewById(R.id.et_title);
         this.titleEditText.setText(this.movie.getTitle());
 
-        this.solvedCheckbox = v.findViewById(R.id.cb_solved);
-        this.solvedCheckbox.setChecked(this.movie.isSeen());
+        this.seenCheckBox = v.findViewById(R.id.cb_seen);
+        this.seenCheckBox.setChecked(this.movie.isSeen());
 
         this.titleEditText.addTextChangedListener(new TextWatcher()
         {
@@ -77,7 +74,7 @@ public class MovieFragment extends Fragment
             }
         });
 
-        this.solvedCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        this.seenCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked)

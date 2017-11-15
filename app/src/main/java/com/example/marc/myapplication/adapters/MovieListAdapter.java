@@ -1,6 +1,5 @@
 package com.example.marc.myapplication.adapters;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.marc.myapplication.MovieCollection;
 import com.example.marc.myapplication.R;
@@ -21,7 +19,7 @@ import java.util.Collections;
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>
 {
-    private final String LOGTAG = "CrimeListAdapter";
+    private final String LOGTAG = "MovieListAdapter";
 
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -69,7 +67,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
         private MovieModel movie;
 
         private TextView titleTextView;
-        private CheckBox solvedCheckbox;
+        private CheckBox seenCheckBox;
 
         public MovieViewHolder(View itemView)
         {
@@ -78,7 +76,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
             itemView.setOnClickListener(this);
 
             this.titleTextView = itemView.findViewById(R.id.tv_title);
-            this.solvedCheckbox = itemView.findViewById(R.id.cb_solved);
+            this.seenCheckBox = itemView.findViewById(R.id.cb_seen);
         }
 
         public void setup(MovieModel movie)
@@ -86,16 +84,16 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
             this.movie = movie;
 
             this.titleTextView.setText(movie.getTitle());
-            this.solvedCheckbox.setChecked(movie.isSeen());
+            this.seenCheckBox.setChecked(movie.isSeen());
         }
 
         @Override
         public void onClick(View view)
         {
-            Intent crimeIntent = new Intent(view.getContext(), MovieActivity.class);
-            crimeIntent.putExtra(MovieActivity.EXTRA_CRIME_ID, this.movie.getId());
+            Intent movieIntent = new Intent(view.getContext(), MovieActivity.class);
+            movieIntent.putExtra(MovieActivity.EXTRA_MOVIE_ID, this.movie.getId());
 
-            view.getContext().startActivity(crimeIntent);
+            view.getContext().startActivity(movieIntent);
         }
     }
 }

@@ -7,7 +7,7 @@ import com.example.marc.myapplication.fragments.MovieFragment;
 
 public class MovieActivity extends SingleFragmentActivity
 {
-    public static final String EXTRA_CRIME_ID = "crime_id";
+    public static final String EXTRA_MOVIE_ID = "movie_id";
 
     @Override
     protected Fragment getFragment()
