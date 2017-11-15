@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import com.example.marc.myapplication.MovieCollection;
@@ -27,7 +27,7 @@ public class MovieFragment extends Fragment
 
     private EditText titleEditText;
     private CheckBox seenCheckBox;
-    private ImageView coverImageView;
+    private EditText plotEditText;
 
     private MovieModel movie;
 
@@ -49,28 +49,39 @@ public class MovieFragment extends Fragment
         this.titleEditText = v.findViewById(R.id.et_title);
         this.titleEditText.setText(this.movie.getTitle());
 
+        this.plotEditText = v.findViewById(R.id.et_plot);
+        this.plotEditText.setText(this.movie.getTitle2());
+
         this.seenCheckBox = v.findViewById(R.id.cb_seen);
         this.seenCheckBox.setChecked(this.movie.isSeen());
 
         this.titleEditText.addTextChangedListener(new TextWatcher()
         {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
-            {
-
-            }
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2)
-            {
-
-            }
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
 
             @Override
             public void afterTextChanged(Editable editable)
             {
                 Log.d(LOGTAG, "Text changed! to " + editable.toString());
                 movie.setTitle(editable.toString());
+            }
+        });
+
+        this.plotEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void afterTextChanged(Editable editable)
+            {
+                movie.setTitle2(editable.toString());
             }
         });
 

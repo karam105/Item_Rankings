@@ -9,7 +9,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title"/>
+        android:text="@string/title"
+        android:textSize="22sp"/>
 
     <EditText
         android:id="@+id/et_title"
@@ -25,5 +26,14 @@
         android:layout_gravity="end"
         android:layout_margin="5dp"
         android:text="@string/movie_seen"/>
+
+    <EditText
+        android:id="@+id/et_plot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:paddingTop="50dp"
+        android:clickable="false"
+        tools:text="When the aging head of a famous crime family decides to transfer his position to one of his subalterns, a series of unfortunate events start happening to the family, and a war begins between all the well-known families leading to insolence, deportation, murder and revenge, and ends with the favorable successor being finally chosen."/>
 
 </LinearLayout>
