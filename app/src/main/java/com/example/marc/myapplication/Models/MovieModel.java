@@ -8,7 +8,7 @@ public class MovieModel
 {
     private String id;
     private String title;
-    private String title2;
+    private String plot;
     private boolean seen;
 
 
@@ -33,14 +33,14 @@ public class MovieModel
         this.title = title;
     }
 
-    public String getTitle2()
+    public String getPlot()
     {
-        return title2;
+        return plot;
     }
 
-    public void setTitle2(String title2)
+    public void setPlot(String plot)
     {
-        this.title2 = title2;
+        this.plot = plot;
     }
 
     public boolean isSeen()

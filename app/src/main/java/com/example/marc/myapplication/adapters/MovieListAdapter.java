@@ -2,12 +2,10 @@ package com.example.marc.myapplication.adapters;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.marc.myapplication.MovieCollection;
@@ -20,13 +18,9 @@ import java.util.Collections;
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>
 {
-    private final String LOGTAG = "MovieListAdapter";
-
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
-        Log.d(LOGTAG, "onCreateViewHolder()");
-
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.movie_cell, parent, false);
 
@@ -36,18 +30,13 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position)
     {
-        Log.d(LOGTAG, "onBindViewHolder(" + position + ")");
-        // Get crime at specified position
         MovieModel movie = MovieCollection.GetInstance().getMovies().get(position);
-
-        // Setup the ViewHolder
         holder.setup(movie);
     }
 
     @Override
     public int getItemCount()
     {
-        Log.d(LOGTAG, "getItemCount()");
         return MovieCollection.GetInstance().getMovies().size();
     }
 

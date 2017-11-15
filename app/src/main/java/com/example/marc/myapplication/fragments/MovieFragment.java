@@ -5,14 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
 import com.example.marc.myapplication.MovieCollection;
@@ -23,8 +21,6 @@ import com.example.marc.myapplication.Models.MovieModel;
 
 public class MovieFragment extends Fragment
 {
-    private final String LOGTAG = "CrimeFragment";
-
     private EditText titleEditText;
     private CheckBox seenCheckBox;
     private EditText plotEditText;
@@ -50,7 +46,7 @@ public class MovieFragment extends Fragment
         this.titleEditText.setText(this.movie.getTitle());
 
         this.plotEditText = v.findViewById(R.id.et_plot);
-        this.plotEditText.setText(this.movie.getTitle2());
+        this.plotEditText.setText(this.movie.getPlot());
 
         this.seenCheckBox = v.findViewById(R.id.cb_seen);
         this.seenCheckBox.setChecked(this.movie.isSeen());
@@ -66,7 +62,6 @@ public class MovieFragment extends Fragment
             @Override
             public void afterTextChanged(Editable editable)
             {
-                Log.d(LOGTAG, "Text changed! to " + editable.toString());
                 movie.setTitle(editable.toString());
             }
         });
@@ -81,7 +76,7 @@ public class MovieFragment extends Fragment
             @Override
             public void afterTextChanged(Editable editable)
             {
-                movie.setTitle2(editable.toString());
+                movie.setPlot(editable.toString());
             }
         });
 
@@ -90,7 +85,6 @@ public class MovieFragment extends Fragment
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked)
             {
-                Log.d(LOGTAG, "Solved changed to " + isChecked);
                 movie.setSeen(isChecked);
             }
         });

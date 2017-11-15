@@ -1,6 +1,5 @@
 package com.example.marc.myapplication.fragments;
 
-import android.content.ClipData;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,9 +9,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import java.util.List;
 
 import com.example.marc.myapplication.MovieTouchHelper;
 import com.example.marc.myapplication.R;
@@ -34,7 +30,6 @@ public class MovieListFragment extends Fragment
         this.adapter = new MovieListAdapter();
         moviesListView.setAdapter(adapter);
 
-        // This is lame - don't study this, just do it
         moviesListView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ItemTouchHelper.Callback callback = new MovieTouchHelper(adapter);

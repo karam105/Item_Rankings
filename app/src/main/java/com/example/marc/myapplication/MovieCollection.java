@@ -57,17 +57,17 @@ public class MovieCollection
         movie10.setSeen(true);
 
 
-        movie1.setTitle2("When the aging head of a famous crime family decides to transfer his position" +
+        movie1.setPlot("When the aging head of a famous crime family decides to transfer his position" +
                 " to one of his subalterns, a series of unfortunate events start happening to the family," +
                 " and a war begins between all the well-known families leading to insolence, deportation," +
                 " murder and revenge, and ends with the favorable successor being finally chosen.");
 
-        movie2.setTitle2("Chronicles the experiences of a formerly successful banker as a prisoner in" +
+        movie2.setPlot("Chronicles the experiences of a formerly successful banker as a prisoner in" +
                 " the gloomy jailhouse of Shawshank after being found guilty of a crime he did not commit." +
                 " The film portrays the man's unique way of dealing with his new, torturous life; along" +
                 " the way he befriends a number of fellow prisoners, most notably a wise long-term inmate named Red.");
 
-        movie3.setTitle2("Forrest Gump is a simple man with a low I.Q. but good intentions. He is running" +
+        movie3.setPlot("Forrest Gump is a simple man with a low I.Q. but good intentions. He is running" +
                 " through childhood with his best and only friend Jenny. His 'mama' teaches him the ways" +
                 " of life and leaves him to choose his destiny. Forrest joins the army for service in Vietnam," +
                 " finding new friends called Dan and Bubba, he wins medals, creates a famous shrimp fishing fleet," +
@@ -76,14 +76,14 @@ public class MovieCollection
                 " Forrest who can only think of his childhood sweetheart Jenny Curran, who has messed up her life." +
                 " Although in the end all he wants to prove is that anyone can love anyone.");
 
-        movie4.setTitle2("Set within a year after the events of Batman Begins, Batman, Lieutenant James Gordon," +
+        movie4.setPlot("Set within a year after the events of Batman Begins, Batman, Lieutenant James Gordon," +
                 " and new district attorney Harvey Dent successfully begin to round up the criminals that" +
                 " plague Gotham City until a mysterious and sadistic criminal mastermind known only as the" +
                 " Joker appears in Gotham, creating a new wave of chaos. Batman's struggle against the" +
                 " Joker becomes deeply personal, forcing him to \"confront everything he believes\" and" +
                 " improve his technology to stop him. A love triangle develops between Bruce Wayne, Dent and Rachel Dawes.");
 
-        movie5.setTitle2("An ancient Ring thought lost for centuries has been found, and through a strange" +
+        movie5.setPlot("An ancient Ring thought lost for centuries has been found, and through a strange" +
                 " twist in fate has been given to a small Hobbit named Frodo. When Gandalf discovers the" +
                 " Ring is in fact the One Ring of the Dark Lord Sauron, Frodo must make an epic quest" +
                 " to the Cracks of Doom in order to destroy it! However he does not go alone." +
@@ -92,20 +92,20 @@ public class MovieCollection
                 " rivers and plains, facing evil and danger at every corner the Fellowship of the Ring must go." +
                 " Their quest to destroy the One Ring is the only hope for the end of the Dark Lords reign!");
 
-        movie6.setTitle2("Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit" +
+        movie6.setPlot("Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta) are two hit" +
                 " men who are out to retrieve a suitcase stolen from their employer, mob boss Marsellus Wallace (Ving Rhames)." +
                 " Wallace has also asked Vincent to take his wife Mia (Uma Thurman) out a few days later when" +
                 " Wallace himself will be out of town. Butch Coolidge (Bruce Willis) is an aging boxer who is" +
                 " paid by Wallace to lose his fight. The lives of these seemingly unrelated people are woven together" +
                 " comprising of a series of funny, bizarre and uncalled-for incidents.");
 
-        movie7.setTitle2("Luke Skywalker, Han Solo, Princess Leia and Chewbacca face attack by the" +
+        movie7.setPlot("Luke Skywalker, Han Solo, Princess Leia and Chewbacca face attack by the" +
                 " Imperial forces and its AT-AT walkers on the ice planet Hoth. While Han and Leia escape" +
                 " in the Millennium Falcon, Luke travels to Dagobah in search of Yoda. Only with the" +
                 " Jedi master's help will Luke survive when the dark side of the Force beckons him into" +
                 " the ultimate duel with Darth Vader.");
 
-        movie8.setTitle2("Opening with the Allied invasion of Normandy on 6 June 1944, members of the" +
+        movie8.setPlot("Opening with the Allied invasion of Normandy on 6 June 1944, members of the" +
                 " 2nd Ranger Battalion under Cpt. Miller fight ashore to secure a beachhead. Amidst the fighting," +
                 " two brothers are killed in action. Earlier in New Guinea, a third brother is KIA." +
                 " Their mother, Mrs. Ryan, is to receive all three of the grave telegrams on the same day." +
@@ -113,12 +113,12 @@ public class MovieCollection
                 " some of her grief when he learns of a fourth brother, Private James Ryan, and decides to send out 8 men" +
                 " (Cpt. Miller and select members from 2nd Rangers) to find him and bring him back home to his mother...");
 
-        movie9.setTitle2("Marty McFly, a typical American teenager of the Eighties, is accidentally" +
+        movie9.setPlot("Marty McFly, a typical American teenager of the Eighties, is accidentally" +
                 " sent back to 1955 in a plutonium-powered DeLorean \"time machine\" invented by a" +
                 " slightly mad scientist. During his often hysterical, always amazing trip back in time," +
                 " Marty must make certain his teenage parents-to-be meet and fall in love - so he can get back to the future.");
 
-        movie10.setTitle2("84 years later, a 100 year-old woman named Rose DeWitt Bukater tells the story" +
+        movie10.setPlot("84 years later, a 100 year-old woman named Rose DeWitt Bukater tells the story" +
                 " to her granddaughter Lizzy Calvert, Brock Lovett, Lewis Bodine, Bobby Buell and Anatoly Mikailavich" +
                 " on the Keldysh about her life set in April 10th 1912, on a ship called Titanic when young Rose" +
                 " boards the departing ship with the upper-class passengers and her mother, Ruth DeWitt Bukater," +
@@ -127,6 +127,7 @@ public class MovieCollection
                 " story from departure until the death of Titanic on its first and last voyage April 15th, 1912 at 2:20 in the morning.");
 
         this.movies = new ArrayList<>();
+
         movies.add(movie1);
         movies.add(movie2);
         movies.add(movie3);
@@ -142,11 +143,6 @@ public class MovieCollection
     public List<MovieModel> getMovies()
     {
         return this.movies;
-    }
-
-    public void addMovie(MovieModel movie)
-    {
-        this.movies.add(movie);
     }
 
     public MovieModel getMovie(String id)
